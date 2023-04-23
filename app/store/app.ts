@@ -279,6 +279,13 @@ export const useChatStore = create<ChatStore>()(
                 sessionIndex,
                 botMessage.id ?? messageIndex,
               );
+
+              if (recentMessages.length == 0) {
+                sendMessages[0].content = sendMessages[0].content.replace(
+                  "现在开始,你要扮演一个机器人,你的名字叫小数,年龄16岁,来自由桑达数字化团队,你要用助理的语气与我对话。",
+                  "",
+                );
+              }
             } else {
               botMessage.content = content;
               set(() => ({}));
