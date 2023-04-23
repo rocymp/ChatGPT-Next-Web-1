@@ -46,7 +46,7 @@ import {
 
 import dynamic from "next/dynamic";
 
-import { ControllerPool } from "../requests";
+import { ControllerPool, requestWithPrompt } from "../requests";
 import { Prompt, usePromptStore } from "../store/prompt";
 import Locale from "../locales";
 
@@ -598,6 +598,10 @@ export function Chat() {
       copiedHello.content = Locale.Error.Unauthorized;
     }
     context.push(copiedHello);
+
+    requestWithPrompt(session.messages, Locale.Store.Prompt.Topic, {
+      model: "gpt-3.5-turbo",
+    }).then((res) => {});
   }
 
   // preview messages
