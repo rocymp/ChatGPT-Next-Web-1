@@ -598,7 +598,9 @@ export function Chat() {
       copiedHello.content = Locale.Error.Unauthorized;
     }
     context.push(copiedHello);
+  }
 
+  if (session.messages.length === 0) {
     requestWithPrompt(session.messages, Locale.Store.Prompt.Topic, {
       model: "gpt-3.5-turbo",
     }).then((res) => {});
