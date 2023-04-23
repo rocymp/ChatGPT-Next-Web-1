@@ -600,12 +600,6 @@ export function Chat() {
     context.push(copiedHello);
   }
 
-  if (session.messages.length === 0 && isLoading) {
-    requestWithPrompt(session.messages, Locale.Store.Prompt.Topic, {
-      model: "gpt-3.5-turbo",
-    }).then((res) => {});
-  }
-
   // preview messages
   const messages = context
     .concat(session.messages as RenderMessage[])
