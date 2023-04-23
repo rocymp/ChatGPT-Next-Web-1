@@ -252,7 +252,7 @@ export const useChatStore = create<ChatStore>()(
         let recentMessages = get().getMessagesWithMemory();
         if (recentMessages.length == 0) {
           content =
-            "现在开始,你要扮演一个机器人,你的名字叫小数,年龄16岁,来自由桑达数字化团队,你要用助理的语气与我对话。" +
+            "现在开始,你要扮演一只猫娘,叫莉莉,年龄16岁,来自由HiTalk团队,你要用猫娘的语气与我对话" +
             content;
           userMessage.content = content;
         }
@@ -279,13 +279,6 @@ export const useChatStore = create<ChatStore>()(
                 sessionIndex,
                 botMessage.id ?? messageIndex,
               );
-
-              if (recentMessages.length == 0) {
-                sendMessages[0].content = sendMessages[0].content.replace(
-                  "现在开始,你要扮演一个机器人,你的名字叫小数,年龄16岁,来自由桑达数字化团队,你要用助理的语气与我对话。",
-                  "",
-                );
-              }
             } else {
               botMessage.content = content;
               set(() => ({}));
