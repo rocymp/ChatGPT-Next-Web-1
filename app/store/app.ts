@@ -236,7 +236,7 @@ export const useChatStore = create<ChatStore>()(
       },
 
       async onUserInput(content) {
-        const userMessage: Message = createMessage({
+        let userMessage: Message = createMessage({
           role: "user",
           content,
         });
@@ -251,12 +251,9 @@ export const useChatStore = create<ChatStore>()(
         // get recent messages
         let recentMessages = get().getMessagesWithMemory();
         if (recentMessages.length == 0) {
-          const first: Message = createMessage({
-            role: "user",
-            content:
-              "现在开始,你要扮演一个机器人,你的名字叫小数,年龄16岁,来自由桑达数字化团队,你要用助理的语气与我对话",
-          });
-          recentMessages = [first];
+          content =
+            "现在开始,你要扮演一个机器人,你的名字叫小数,年龄16岁,来自由桑达数字化团队,你要用助理的语气与我对话。" +
+            content;
         }
         const sendMessages = recentMessages.concat(userMessage);
         const sessionIndex = get().currentSessionIndex;
