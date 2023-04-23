@@ -444,20 +444,6 @@ export function Settings() {
           )}
 
           <SettingItem
-            title={Locale.Settings.Token.Title}
-            subTitle={Locale.Settings.Token.SubTitle}
-          >
-            <PasswordInput
-              value={accessStore.token}
-              type="text"
-              placeholder={Locale.Settings.Token.Placeholder}
-              onChange={(e) => {
-                accessStore.updateToken(e.currentTarget.value);
-              }}
-            />
-          </SettingItem>
-
-          <SettingItem
             title={Locale.Settings.Usage.Title}
             subTitle={
               showUsage
@@ -553,25 +539,6 @@ export function Settings() {
         </List>
 
         <List>
-          <SettingItem title={Locale.Settings.Model}>
-            <select
-              value={config.modelConfig.model}
-              onChange={(e) => {
-                updateConfig(
-                  (config) =>
-                    (config.modelConfig.model = ModalConfigValidator.model(
-                      e.currentTarget.value,
-                    )),
-                );
-              }}
-            >
-              {ALL_MODELS.map((v) => (
-                <option value={v.name} key={v.name} disabled={!v.available}>
-                  {v.name}
-                </option>
-              ))}
-            </select>
-          </SettingItem>
           <SettingItem
             title={Locale.Settings.Temperature.Title}
             subTitle={Locale.Settings.Temperature.SubTitle}
@@ -599,7 +566,7 @@ export function Settings() {
             <input
               type="number"
               min={100}
-              max={32000}
+              max={2048}
               value={config.modelConfig.max_tokens}
               onChange={(e) =>
                 updateConfig(
