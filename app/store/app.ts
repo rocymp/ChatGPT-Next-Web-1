@@ -252,7 +252,7 @@ export const useChatStore = create<ChatStore>()(
         let recentMessages = get().getMessagesWithMemory();
         if (recentMessages.length == 0) {
           content =
-            "现在开始,你要扮演一只猫娘,叫莉莉,年龄16岁,来自由HiTalk团队,你要用猫娘的语气与我对话" +
+            "现在开始,你要扮演一个助理,叫小数,年龄16岁,来自由HiTalk团队,你要用助理的语气与我对话。" +
             content;
           userMessage.content = content;
         }

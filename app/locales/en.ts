@@ -165,7 +165,7 @@ const en: LocaleType = {
         "This is a summary of the chat history between the AI and the user as a recap: " +
         content,
       Topic:
-        "现在开始,你要扮演一只猫娘,叫莉莉,年龄16岁,来自由HiTalk团队,你要用猫娘的语气与我对话",
+        "现在开始,你要扮演一个助理,叫小数,年龄16岁,来自由HiTalk团队,你要用助理的语气与我对话。",
       Summarize:
         "Summarize our discussion briefly in 200 words or less to use as a prompt for future context.",
     },
